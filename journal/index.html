@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="Franklin 的生活记录，收藏好吃的、好玩的和好看的。">
+    <title>生活记录 · Franklin</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/profile.js" defer></script>
+  </head>
+  <body class="subpage" data-page="journal">
+    <a class="skip-link" href="#content">跳到主要内容</a>
+    <header class="header">
+      <div class="page header-inner">
+        <a class="identity" href="../" aria-label="Franklin，首页">
+          <span class="identity-mark" aria-hidden="true">F</span>
+          Franklin
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="../">旅行地图</a>
+          <a href="../projects/">项目</a>
+          <a href="../experience/">工作经历</a>
+          <a href="../journal/" aria-current="page">生活记录</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page" id="content">
+      <section class="intro" aria-labelledby="page-title">
+        <h1 id="page-title">生活记录</h1>
+      </section>
+      <nav class="journal-nav" aria-label="记录分类">
+        <a href="./?category=food" data-category="food" aria-current="page">好吃的</a>
+        <a href="./?category=activities" data-category="activities">好玩的</a>
+        <a href="./?category=sights" data-category="sights">好看的</a>
+      </nav>
+      <p class="records-status" id="content-status" role="status">正在读取生活记录…</p>
+      <ul class="content-list" id="content-list"></ul>
+      <noscript><p>启用 JavaScript 后即可查看生活记录。</p></noscript>
+    </main>
+    <footer class="footer">
+      <div class="page footer-inner">
+        <span>Franklin</span>
+        <a href="https://github.com/franklin3366">GitHub 主页</a>
+      </div>
+    </footer>
+  </body>
+</html>

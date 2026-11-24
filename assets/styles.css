@@ -80,8 +80,16 @@ button { color: inherit; }
   font-size: 1.1rem;
 }
 
-nav { display: flex; gap: clamp(0.85rem, 3vw, 2rem); }
-nav a { color: var(--muted); font-size: 0.94rem; padding-block: 0.65rem; }
+.site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; }
+.site-nav a {
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.5rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  white-space: nowrap;
+}
+.site-nav a:hover { background: #eff2eb; text-decoration: none; }
+.site-nav a[aria-current="page"] { background: #e5ede4; color: var(--ink); font-weight: 675; }
 
 .intro {
   display: flex;
@@ -111,6 +119,7 @@ h1 {
   border-left: 1px solid var(--line);
 }
 .stats dt { font-size: 0.875rem; color: var(--muted); white-space: nowrap; }
+.section-link { text-decoration: underline; text-underline-offset: 0.2em; }
 .stats dd {
   font-family: Georgia, serif;
   font-size: clamp(1.85rem, 4vw, 2.65rem);
@@ -299,13 +308,75 @@ h1 {
 .footer { border-top: 1px solid var(--line); }
 .footer-inner { min-height: 4.5rem; color: var(--muted); font-size: 0.94rem; }
 
+.subpage { display: flex; flex-direction: column; min-height: 100vh; }
+.subpage main { flex: 1; padding-bottom: clamp(3.2rem, 8vw, 6.5rem); }
+.subpage .intro { padding-bottom: 1.7rem; }
+.subpage .records-status { max-width: 44rem; margin-top: 0; }
+
+.content-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.records-status:not([hidden]) + .content-list:not(:empty) { margin-top: 1rem; }
+.content-list:not(.experience-list) > li:only-child { max-width: 44rem; }
+.content-card {
+  height: 100%;
+  padding: clamp(1.15rem, 3vw, 1.85rem);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  box-shadow: 0 0.35rem 1.35rem #2144370a;
+  overflow-wrap: anywhere;
+}
+.content-card h2 { font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.25; }
+.content-card .content-meta { margin-top: 0.5rem; color: var(--muted); font-size: 0.94rem; }
+.content-card .content-note { margin-top: 0.85rem; color: var(--muted); line-height: 1.65; white-space: pre-wrap; }
+.content-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.content-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.65rem;
+  padding-inline: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  color: var(--ink);
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+.content-links a:hover { background: #eff2eb; }
+
+.experience-list { grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
+.experience-item { display: grid; grid-template-columns: minmax(9rem, 0.26fr) minmax(0, 1fr); gap: 1.25rem; }
+.experience-item .content-meta { margin-top: 0.45rem; }
+.experience-period { padding-top: 0.22rem; color: var(--muted); font-size: 0.94rem; line-height: 1.55; }
+
+.journal-nav { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.15rem; }
+.journal-nav a {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: var(--card);
+  color: var(--muted);
+  font-weight: 600;
+}
+.journal-nav a:hover { background: #eff2eb; text-decoration: none; }
+.journal-nav a[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: var(--card); }
+
 @media (max-width: 38rem) {
   .page { width: calc(100% - 1.75rem); }
-  .header-inner { min-height: 3.65rem; }
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-block: 0.65rem; }
+  .site-nav { width: 100%; justify-content: space-between; gap: 0.1rem; }
+  .site-nav a { padding-inline: 0.35rem; font-size: 0.875rem; }
   .intro { padding-block: 2rem 1.05rem; }
   .map-stage { height: clamp(15.5rem, 63vw, 21rem); }
   .map-controls { top: 0.55rem; right: 0.55rem; }
   .map-controls button { width: 2.5rem; height: 2.5rem; }
   .map-footer { padding-inline: 0.8rem; }
   .map-detail, .map-error { left: 0.55rem; bottom: 0.55rem; }
+  .experience-item { grid-template-columns: 1fr; gap: 0.55rem; }
+  .experience-period { padding-top: 0; }
 }

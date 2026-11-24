@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="Franklin 的个人主页，记录旅途中到访过的城市和地方。">
+    <title>我的旅行地图 · Franklin</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script src="./assets/travel.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到主要内容</a>
+    <header class="header">
+      <div class="page header-inner">
+        <a class="identity" href="./" aria-label="Franklin，首页">
+          <span class="identity-mark" aria-hidden="true">F</span>
+          Franklin
+        </a>
+        <nav aria-label="主导航">
+          <a href="#map">地图</a>
+          <a href="#records">旅行记录</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page" id="content">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Franklin 的个人主页</p>
+          <h1 id="page-title">我的旅行地图</h1>
+        </div>
+        <dl class="stats" aria-label="旅行统计">
+          <div><dt>到访地点</dt><dd id="place-count">–</dd></div>
+          <div><dt>国家及地区</dt><dd id="country-count">–</dd></div>
+        </dl>
+      </section>
+
+      <section class="map-card" id="map" aria-label="世界地图">
+        <div class="map-stage" id="map-stage" tabindex="0" aria-label="可缩放的世界地图" aria-describedby="map-instructions">
+          <p class="sr-only" id="map-instructions">按加号或减号缩放。放大后可拖动地图，或用方向键移动。按 0 恢复全景。</p>
+          <canvas id="atlas" aria-hidden="true"></canvas>
+          <div class="map-markers" id="map-markers"></div>
+          <div class="map-controls" role="group" aria-label="地图控制">
+            <button id="zoom-in" type="button" aria-label="放大地图" title="放大地图">+</button>
+            <button id="zoom-out" type="button" aria-label="缩小地图" title="缩小地图" disabled>−</button>
+            <button id="reset" type="button" aria-label="恢复全景" title="恢复全景" disabled>全景</button>
+          </div>
+          <p class="map-error" id="map-error" role="status" hidden>地图底图暂时无法加载。</p>
+          <article class="map-detail" id="map-detail" aria-label="地点详情" hidden>
+            <button class="detail-close" id="detail-close" type="button" aria-label="关闭地点详情">×</button>
+            <p class="detail-country" id="detail-country"></p>
+            <h2 id="detail-name"></h2>
+            <p class="detail-date" id="detail-date" hidden></p>
+            <p class="detail-note" id="detail-note" hidden></p>
+          </article>
+        </div>
+        <div class="map-footer">
+          <span class="legend"><span class="legend-dot" aria-hidden="true"></span>到访地点</span>
+          <a href="https://www.naturalearthdata.com/about/">底图数据 · Natural Earth</a>
+        </div>
+      </section>
+
+      <section class="records" id="records" aria-labelledby="records-title">
+        <div class="records-head">
+          <h2 id="records-title">旅行记录</h2>
+          <label class="search" id="search-wrap" hidden>
+            <span class="sr-only">搜索地点或国家及地区</span>
+            <input id="search" type="search" placeholder="搜索地点或国家及地区" autocomplete="off">
+          </label>
+        </div>
+        <p class="records-status" id="records-status" role="status">正在读取旅行记录…</p>
+        <ul class="record-grid" id="place-list"></ul>
+        <noscript><p>启用 JavaScript 后即可查看地图和旅行记录。</p></noscript>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="page footer-inner">
+        <span>Franklin</span>
+        <a href="https://github.com/franklin3366">GitHub 主页</a>
+      </div>
+    </footer>
+  </body>
+</html>

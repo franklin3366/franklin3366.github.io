@@ -307,6 +307,7 @@ h1 {
 
 .footer { border-top: 1px solid var(--line); }
 .footer-inner { min-height: 4.5rem; color: var(--muted); font-size: 0.94rem; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: end; gap: 0.55rem 1rem; }
 
 .subpage { display: flex; flex-direction: column; min-height: 100vh; }
 .subpage main { flex: 1; padding-bottom: clamp(3.2rem, 8vw, 6.5rem); }

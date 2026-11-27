@@ -336,6 +336,33 @@ h1 {
 .content-card h2 { font-size: clamp(1.3rem, 3.5vw, 1.8rem); line-height: 1.25; }
 .content-card .content-meta { margin-top: 0.5rem; color: var(--muted); font-size: 0.94rem; }
 .content-card .content-note { margin-top: 0.85rem; color: var(--muted); line-height: 1.65; white-space: pre-wrap; }
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));
+  align-items: start;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+.photo-gallery a {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  border-radius: 0.55rem;
+  background: #eef1eb;
+}
+.photo-gallery img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 24rem;
+  border-radius: inherit;
+}
+.map-detail:has(.photo-gallery) { padding-right: 1.05rem; }
+.map-detail:has(.photo-gallery) h2 { padding-right: 1.75rem; }
+.map-detail .photo-gallery { grid-template-columns: minmax(0, 1fr); margin-top: 0.65rem; }
+.map-detail .photo-gallery:has(a:nth-child(2)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.map-detail .photo-gallery img { max-height: 11rem; }
 .content-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
 .content-links a {
   display: inline-flex;

@@ -54,6 +54,7 @@ function renderProject(entry) {
   appendText(card, "h2", title);
   appendText(card, "p", cleanText(entry.period), "content-meta");
   appendText(card, "p", cleanText(entry.summary), "content-note");
+  appendGallery(card, entry.images, title);
   appendLinks(card, [[entry.url, "查看项目"], [entry.repository, "源代码"]]);
   return item;
 }
@@ -74,6 +75,7 @@ function renderExperience(entry) {
   appendText(details, "h2", role);
   appendText(details, "p", organization, "content-meta");
   appendText(details, "p", cleanText(entry.summary), "content-note");
+  appendGallery(details, entry.images, role);
   card.append(details);
   return item;
 }
@@ -86,6 +88,7 @@ function renderJournalEntry(entry) {
   appendText(card, "h2", title);
   appendText(card, "p", metadata, "content-meta");
   appendText(card, "p", cleanText(entry.note), "content-note");
+  appendGallery(card, entry.images, title);
   appendLinks(card, [[entry.url, "相关链接"]]);
   return item;
 }

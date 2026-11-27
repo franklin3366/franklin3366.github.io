@@ -176,6 +176,7 @@ function showPlace(entry, center = false) {
   }
   selected = entry;
   detail.hidden = !entry;
+  detail.querySelector('.photo-gallery')?.remove();
   if (!entry) return;
   const { place, marker, card } = entry;
   marker.setAttribute("aria-pressed", "true");
@@ -187,6 +188,9 @@ function showPlace(entry, center = false) {
     element.textContent = text;
     element.hidden = !text;
   }
+  const gallery = photoGallery(place.images, place.name);
+  if (gallery) detail.append(gallery);
+  detail.scrollTop = 0;
   if (!center) return;
   view.zoom = Math.max(view.zoom, 2);
   const { scale } = measure();
@@ -215,7 +219,7 @@ function normalizePlace(record) {
     const parsed = new Date(`${date}T00:00:00Z`);
     if (!Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) return null;
   }
-  return { name: name.trim(), country: country.trim(), lat, lng, visited: date, note: note.trim() };
+  return { name: name.trim(), country: country.trim(), lat, lng, visited: date, note: note.trim(), images: record.images };
 }
 
 function createEntry(place) {
